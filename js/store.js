@@ -142,6 +142,8 @@ export function buildSession(profile, deckId, limit) {
     let qType;
     if (!item.isReview) qType = i % 3 === 0 ? "recognize" : "listen";
     else qType = i % 2 === 0 ? "spell" : "listen";
+    // 多字詞（例如 fish and chips）唔可以拼字題
+    if (/\s/.test(item.w.en)) qType = "listen";
     return { ...item, qType };
   });
 }

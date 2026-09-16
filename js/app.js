@@ -1,4 +1,4 @@
-import { DECKS, DECK_MAP, wordKey } from "./data.js";
+import { DECKS, DECK_MAP, allWords, wordKey } from "./data.js";
 import * as store from "./store.js";
 
 /* ================= 小工具 ================= */
@@ -15,6 +15,18 @@ const shuffle = (arr) => {
 const pick = (arr, n, exclude) => shuffle(arr.filter((x) => !exclude.includes(x))).slice(0, n);
 
 const WEEKDAYS = ["一", "二", "三", "四", "五", "六", "日"];
+
+// 選項水池：先本路線，唔夠 4 個就由全部字補充
+function distractorPool(deckId, key, exclude) {
+  const set = new Set((DECK_MAP[deckId]?.words || []).map((w) => w[key]).filter((v) => v && v !== exclude));
+  if (set.size < 3) {
+    for (const w of allWords()) {
+      if (w[key] && w[key] !== exclude) set.add(w[key]);
+      if (set.size >= 4) break;
+    }
+  }
+  return [...set];
+}
 
 let toastTimer = null;
 function toast(msg) {
@@ -288,7 +300,7 @@ function renderListen(item) {
     </button>
     <div class="q-prompt" style="margin-top:8px">再聽一次</div>`;
 
-  const others = pick(DECK_MAP[item.deckId].words.map((w) => w.en), 3, [item.en]);
+  const others = shuffle(distractorPool(item.deckId, "en", item.en)).slice(0, 3);
   const opts = shuffle([item.en, ...others]);
   $("#q-answer-area").innerHTML = `<div class="options">${opts
     .map((o) => `<button class="option" data-val="${escapeHtml(o)}">${escapeHtml(o)}</button>`)
@@ -316,7 +328,7 @@ function renderRecognize(item) {
     <div class="q-prompt" style="margin-top:8px">點字可聽發音</div>`;
   $("#q-speak").addEventListener("click", () => speak(item.en));
 
-  const others = pick(DECK_MAP[item.deckId].words.map((w) => w.zh), 3, [item.zh]);
+  const others = shuffle(distractorPool(item.deckId, "zh", item.zh)).slice(0, 3);
   const opts = shuffle([item.zh, ...others]);
   $("#q-answer-area").innerHTML = `<div class="options">${opts
     .map((o) => `<button class="option" data-val="${escapeHtml(o)}">${escapeHtml(o)}</button>`)

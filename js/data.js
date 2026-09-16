@@ -4,7 +4,7 @@
 export const DECKS = [
   {
     id: "school-b5",
-    name: "學校默書 (B5)",
+    name: "B5 默書清單",
     desc: "Spelling Check List · Unit 1–5",
     color: "#3f8f7a",
     words: [
@@ -30,10 +30,12 @@ export const DECKS = [
       { en: "knife", zh: "刀", pic: "🔪", ipa: "/naɪf/" }
     ]
   },
+
+  /* ---------- Phonics 字母 ---------- */
   {
     id: "phonics-d",
     name: "Phonics · 字母 D",
-    desc: "Phonics worksheet · D d",
+    desc: "D d — doctor / duck / doll / door",
     color: "#5b7fc7",
     words: [
       { en: "doctor", zh: "醫生", pic: "🧑‍⚕️", ipa: "/ˈdɑːk.tɚ/" },
@@ -42,6 +44,162 @@ export const DECKS = [
       { en: "door", zh: "門", pic: "🚪", ipa: "/dɔːr/" }
     ]
   },
+  {
+    id: "phonics-j",
+    name: "Phonics · 字母 J",
+    desc: "J j — jellyfish / jacket / joker / jelly",
+    color: "#5b7fc7",
+    words: [
+      { en: "jellyfish", zh: "水母", pic: "🪼", ipa: "/ˈdʒel.i.fɪʃ/" },
+      { en: "jacket", zh: "外套", pic: "🧥", ipa: "/ˈdʒæk.ɪt/" },
+      { en: "joker", zh: "小丑", pic: "🃏", ipa: "/ˈdʒoʊ.kɚ/" },
+      { en: "jelly", zh: "啫喱", pic: "🍮", ipa: "/ˈdʒel.i/" }
+    ]
+  },
+  {
+    id: "phonics-z",
+    name: "Phonics · 字母 Z",
+    desc: "Z z — zero / zip / zigzag / zebra",
+    color: "#5b7fc7",
+    words: [
+      { en: "zero", zh: "零", pic: "0️⃣", ipa: "/ˈzɪr.oʊ/" },
+      { en: "zip", zh: "拉鏈", pic: "🤐", ipa: "/zɪp/" },
+      { en: "zigzag", zh: "之字形", pic: "〰️", ipa: "/ˈzɪɡ.zæɡ/" },
+      { en: "zebra", zh: "斑馬", pic: "🦓", ipa: "/ˈziː.brə/" }
+    ]
+  },
+  {
+    id: "phonics-l",
+    name: "Phonics · 字母 L",
+    desc: "L l — lemon / leaf / lamp / lip",
+    color: "#5b7fc7",
+    words: [
+      { en: "lemon", zh: "檸檬", pic: "🍋", ipa: "/ˈlem.ən/" },
+      { en: "leaf", zh: "葉", pic: "🍃", ipa: "/liːf/" },
+      { en: "lamp", zh: "燈", pic: "💡", ipa: "/læmp/" },
+      { en: "lip", zh: "嘴唇", pic: "👄", ipa: "/lɪp/" }
+    ]
+  },
+
+  /* ---------- B5 單元 ---------- */
+  {
+    id: "b5-u1",
+    name: "B5 Unit 1 · 文具",
+    desc: "School Stationery",
+    color: "#c98a3f",
+    words: [
+      { en: "eraser", zh: "擦膠", pic: "🧽", ipa: "/ɪˈreɪ.sɚ/" },
+      { en: "pencil", zh: "鉛筆", pic: "✏️", ipa: "/ˈpen.səl/" },
+      { en: "crayons", zh: "蠟筆", pic: "🖍️", ipa: "/ˈkreɪ.ɑːnz/" },
+      { en: "ruler", zh: "尺子", pic: "📏", ipa: "/ˈruː.lɚ/" }
+    ]
+  },
+  {
+    id: "b5-u2",
+    name: "B5 Unit 2 · 天氣",
+    desc: "Weather",
+    color: "#c98a3f",
+    words: [
+      { en: "dry", zh: "乾的", pic: "🏜️", ipa: "/draɪ/" },
+      { en: "wet", zh: "濕的", pic: "💦", ipa: "/wet/" },
+      { en: "sky", zh: "天空", pic: "🌤️", ipa: "/skaɪ/" }
+    ]
+  },
+  {
+    id: "b5-u3",
+    name: "B5 Unit 3 · 電子用品",
+    desc: "Electronics",
+    color: "#c98a3f",
+    words: [
+      { en: "computer", zh: "電腦", pic: "💻", ipa: "/kəmˈpjuː.t̬ɚ/" },
+      { en: "mobile", zh: "手提電話", pic: "📱", ipa: "/ˈmoʊ.bəl/" },
+      { en: "clock", zh: "時鐘", pic: "🕐", ipa: "/klɑːk/" }
+    ]
+  },
+  {
+    id: "b5-u4",
+    name: "B5 Unit 4 · 天氣",
+    desc: "Weather",
+    color: "#c98a3f",
+    words: [
+      { en: "cloudy", zh: "多雲", pic: "☁️", ipa: "/ˈklaʊ.di/" },
+      { en: "windy", zh: "大風", pic: "🌬️", ipa: "/ˈwɪn.di/" },
+      { en: "rainy", zh: "下雨", pic: "🌧️", ipa: "/ˈreɪ.ni/" },
+      { en: "sunny", zh: "晴天", pic: "🌞", ipa: "/ˈsʌn.i/" }
+    ]
+  },
+  {
+    id: "b5-u5",
+    name: "B5 Unit 5 · 地方與學校",
+    desc: "Places & School",
+    color: "#c98a3f",
+    words: [
+      { en: "toilet", zh: "洗手間", pic: "🚻", ipa: "/ˈtɔɪ.lɪt/" },
+      { en: "shop", zh: "商店", pic: "🏪", ipa: "/ʃɑːp/" },
+      { en: "uniform", zh: "校服", pic: "👔", ipa: "/ˈjuː.nə.fɔːrm/" },
+      { en: "class", zh: "班房", pic: "🧑‍🎓", ipa: "/klæs/" }
+    ]
+  },
+  {
+    id: "b5-animals",
+    name: "B5 · 動物 Amazing Animals",
+    desc: "Unit 4 Amazing Animals",
+    color: "#3f8f7a",
+    words: [
+      { en: "crocodile", zh: "鱷魚", pic: "🐊", ipa: "/ˈkrɑː.kə.daɪl/" },
+      { en: "giraffe", zh: "長頸鹿", pic: "🦒", ipa: "/dʒəˈræf/" },
+      { en: "monkey", zh: "猴子", pic: "🐒", ipa: "/ˈmʌŋ.ki/" },
+      { en: "zebra", zh: "斑馬", pic: "🦓", ipa: "/ˈziː.brə/" },
+      { en: "elephant", zh: "大象", pic: "🐘", ipa: "/ˈel.ə.fənt/" },
+      { en: "lion", zh: "獅子", pic: "🦁", ipa: "/ˈlaɪ.ən/" }
+    ]
+  },
+  {
+    id: "b5-town",
+    name: "B5 · 城鎮 Going into Town",
+    desc: "Unit 5 Going into Town",
+    color: "#6a9bcc",
+    words: [
+      { en: "hospital", zh: "醫院", pic: "🏥", ipa: "/ˈhɑː.spɪ.t̬əl/" },
+      { en: "library", zh: "圖書館", pic: "📚", ipa: "/ˈlaɪ.brer.i/" },
+      { en: "park", zh: "公園", pic: "🏞️", ipa: "/pɑːrk/" },
+      { en: "restaurant", zh: "餐廳", pic: "🍽️", ipa: "/ˈres.tə.rɑːnt/" },
+      { en: "school", zh: "學校", pic: "🏫", ipa: "/skuːl/" },
+      { en: "supermarket", zh: "超級市場", pic: "🛒", ipa: "/ˈsuː.pɚ.mɑːr.kɪt/" }
+    ]
+  },
+  {
+    id: "b5-food",
+    name: "B5 · 世界美食 Food around the World",
+    desc: "It's a Fun World",
+    color: "#d9663f",
+    words: [
+      { en: "curry", zh: "咖喱", pic: "🍛", ipa: "/ˈkɝː.i/" },
+      { en: "sushi", zh: "壽司", pic: "🍣", ipa: "/ˈsuː.ʃi/" },
+      { en: "hamburger", zh: "漢堡", pic: "🍔", ipa: "/ˈhæm.bɝː.ɡɚ/" },
+      { en: "pizza", zh: "薄餅", pic: "🍕", ipa: "/ˈpiːt.sə/" },
+      { en: "taco", zh: "墨西哥卷", pic: "🌮", ipa: "/ˈtɑː.koʊ/" },
+      { en: "fish and chips", zh: "炸魚薯條", pic: "🐟🍟", ipa: "/ˌfɪʃ ən ˈtʃɪps/" },
+      { en: "fork", zh: "叉", pic: "🍴", ipa: "/fɔːrk/" },
+      { en: "knife", zh: "刀", pic: "🔪", ipa: "/naɪf/" },
+      { en: "spoon", zh: "匙羹", pic: "🥄", ipa: "/spuːn/" },
+      { en: "chopsticks", zh: "筷子", pic: "🥢", ipa: "/ˈtʃɑːp.stɪks/" }
+    ]
+  },
+  {
+    id: "b5-places",
+    name: "B5 · 地方 Macao & China",
+    desc: "It's a Fun World",
+    color: "#6a9bcc",
+    words: [
+      { en: "Macao", zh: "澳門", pic: "🇲🇴", ipa: "/məˈkaʊ/" },
+      { en: "China", zh: "中國", pic: "🇨🇳", ipa: "/ˈtʃaɪ.nə/" },
+      { en: "flag", zh: "旗", pic: "🚩", ipa: "/flæɡ/" },
+      { en: "map", zh: "地圖", pic: "🗺️", ipa: "/mæp/" }
+    ]
+  },
+
+  /* ---------- 通用 ---------- */
   {
     id: "starter",
     name: "基礎入門",
@@ -80,7 +238,6 @@ export const DECKS = [
       { en: "duck", zh: "鴨", pic: "🦆", ipa: "/dʌk/" },
       { en: "frog", zh: "青蛙", pic: "🐸", ipa: "/frɔːɡ/" },
       { en: "horse", zh: "馬", pic: "🐴", ipa: "/hɔːrs/" },
-      { en: "monkey", zh: "猴子", pic: "🐒", ipa: "/ˈmʌŋ.ki/" },
       { en: "panda", zh: "熊貓", pic: "🐼", ipa: "/ˈpæn.də/" },
       { en: "pig", zh: "豬", pic: "🐷", ipa: "/pɪɡ/" },
       { en: "rabbit", zh: "兔子", pic: "🐰", ipa: "/ˈræb.ɪt/" },
@@ -89,7 +246,6 @@ export const DECKS = [
       { en: "tiger", zh: "老虎", pic: "🐯", ipa: "/ˈtaɪ.ɡɚ/" },
       { en: "turtle", zh: "烏龜", pic: "🐢", ipa: "/ˈtɝː.t̬əl/" },
       { en: "whale", zh: "鯨魚", pic: "🐳", ipa: "/weɪl/" },
-      { en: "zebra", zh: "斑馬", pic: "🦓", ipa: "/ˈziː.brə/" },
       { en: "bee", zh: "蜜蜂", pic: "🐝", ipa: "/biː/" }
     ]
   },
@@ -109,10 +265,8 @@ export const DECKS = [
       { en: "purple", zh: "紫色", pic: "🟪", ipa: "/ˈpɝː.pəl/" },
       { en: "circle", zh: "圓形", pic: "⭕", ipa: "/ˈsɝː.kəl/" },
       { en: "square", zh: "正方形", pic: "🔲", ipa: "/skwer/" },
-      { en: "star", zh: "星星", pic: "⭐", ipa: "/stɑːr/" },
       { en: "heart", zh: "心形", pic: "❤️", ipa: "/hɑːrt/" },
-      { en: "line", zh: "線", pic: "➖", ipa: "/laɪn/" },
-      { en: "round", zh: "圓的", pic: "⚪", ipa: "/raʊnd/" }
+      { en: "line", zh: "線", pic: "➖", ipa: "/laɪn/" }
     ]
   },
   {
@@ -128,7 +282,6 @@ export const DECKS = [
       { en: "chicken", zh: "雞肉", pic: "🍗", ipa: "/ˈtʃɪk.ɪn/" },
       { en: "grape", zh: "葡萄", pic: "🍇", ipa: "/ɡreɪp/" },
       { en: "juice", zh: "果汁", pic: "🧃", ipa: "/dʒuːs/" },
-      { en: "lemon", zh: "檸檬", pic: "🍋", ipa: "/ˈlem.ən/" },
       { en: "peach", zh: "桃", pic: "🍑", ipa: "/piːtʃ/" },
       { en: "rice", zh: "飯", pic: "🍚", ipa: "/raɪs/" },
       { en: "soup", zh: "湯", pic: "🍲", ipa: "/suːp/" },
@@ -152,14 +305,11 @@ export const DECKS = [
       { en: "happy", zh: "開心", pic: "😄", ipa: "/ˈhæp.i/" },
       { en: "letter", zh: "字母 / 信", pic: "✉️", ipa: "/ˈlet̬.ɚ/" },
       { en: "music", zh: "音樂", pic: "🎵", ipa: "/ˈmjuː.zɪk/" },
-      { en: "pencil", zh: "鉛筆", pic: "✏️", ipa: "/ˈpen.səl/" },
       { en: "picture", zh: "圖畫", pic: "🖼️", ipa: "/ˈpɪk.tʃɚ/" },
       { en: "read", zh: "閱讀", pic: "📖", ipa: "/riːd/" },
-      { en: "ruler", zh: "尺子", pic: "📏", ipa: "/ˈruː.lɚ/" },
       { en: "teacher", zh: "老師", pic: "👩‍🏫", ipa: "/ˈtiː.tʃɚ/" },
       { en: "write", zh: "寫", pic: "✍️", ipa: "/raɪt/" },
-      { en: "number", zh: "數字", pic: "🔢", ipa: "/ˈnʌm.bɚ/" },
-      { en: "clock", zh: "時鐘", pic: "🕐", ipa: "/klɑːk/" }
+      { en: "number", zh: "數字", pic: "🔢", ipa: "/ˈnʌm.bɚ/" }
     ]
   }
 ];
