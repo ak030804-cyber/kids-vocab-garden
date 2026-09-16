@@ -203,7 +203,17 @@ body {
 
 .qtype-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 700; color: var(--muted); }
 
-.q-body { text-align: center; padding: 22px 4px 6px; }
+.q-body { text-align: center; padding: 18px 4px 6px; }
+
+.q-pic {
+  width: 128px; height: 128px; margin: 10px auto 8px;
+  display: grid; place-items: center; font-size: 76px; line-height: 1;
+  background: radial-gradient(120% 120% at 50% 20%, #fffdf6, #f0ead9);
+  border: 1px solid var(--line); border-radius: 30px; box-shadow: var(--shadow-sm);
+}
+.q-pic.lg { width: 160px; height: 160px; font-size: 96px; }
+.q-ipa { color: var(--muted); font-size: 16px; margin-top: 4px; letter-spacing: 0.02em; font-weight: 600; }
+.qtype-hint { color: var(--muted); font-size: 14px; margin-bottom: 2px; }
 .q-prompt { font-size: 15px; color: var(--muted); margin-bottom: 8px; }
 .q-word { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; }
 .q-word.small { font-size: 30px; }

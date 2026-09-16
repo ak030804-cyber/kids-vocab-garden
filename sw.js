@@ -1,5 +1,5 @@
 // 離線快取 app shell（network-first，確保更新即時生效）
-const CACHE = "kvapp-v2";
+const CACHE = "kvapp-v3";
 const ASSETS = [
   "./",
   "./index.html",

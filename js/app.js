@@ -279,11 +279,14 @@ function renderQuestion() {
 
 function renderListen(item) {
   $("#q-stage").innerHTML = `
-    <div class="q-prompt">點一下就發音</div>
-    <button class="speaker" id="speaker" aria-label="播放發音">
+    <div class="qtype-hint">聽聲音，選出正確嘅單字</div>
+    <div class="q-pic">${item.pic || "❓"}</div>
+    <div class="q-zh">${escapeHtml(item.zh)}</div>
+    <div class="q-ipa">${escapeHtml(item.ipa || "")}</div>
+    <button class="speaker" id="speaker" aria-label="再聽一次" style="margin:12px auto 0">
       <svg class="icon icon-xl"><use href="#i-volume"/></svg>
     </button>
-    <div class="q-prompt" style="margin-top:6px">聽聲音，選出正確嘅單字</div>`;
+    <div class="q-prompt" style="margin-top:8px">再聽一次</div>`;
 
   const others = pick(DECK_MAP[item.deckId].words.map((w) => w.en), 3, [item.en]);
   const opts = shuffle([item.en, ...others]);
@@ -306,9 +309,11 @@ function renderListen(item) {
 
 function renderRecognize(item) {
   $("#q-stage").innerHTML = `
-    <div class="q-prompt">呢個英文字係咩意思？</div>
+    <div class="qtype-hint">認字，選出正確意思</div>
+    <div class="q-pic">${item.pic || "❓"}</div>
     <button class="q-word" id="q-speak" style="background:none;border:none;cursor:pointer;color:inherit;font-family:inherit">${escapeHtml(item.en)}</button>
-    <div class="q-prompt" style="margin-top:8px">（點字可聽發音）</div>`;
+    <div class="q-ipa">${escapeHtml(item.ipa || "")}</div>
+    <div class="q-prompt" style="margin-top:8px">點字可聽發音</div>`;
   $("#q-speak").addEventListener("click", () => speak(item.en));
 
   const others = pick(DECK_MAP[item.deckId].words.map((w) => w.zh), 3, [item.zh]);
@@ -329,21 +334,24 @@ function renderSpell(item) {
   const pool = shuffle([...letters.map((l, i) => ({ l, id: "x" + i })), ...extra.map((l, i) => ({ l, id: "e" + i }))]);
 
   $("#q-stage").innerHTML = `
-    <div class="q-prompt">呢個中文嘅英文點串？</div>
+    <div class="qtype-hint">用字母積木拼出單字</div>
+    <div class="q-pic">${item.pic || "❓"}</div>
     <div class="q-zh">${escapeHtml(item.zh)}</div>
+    <div class="q-ipa">${escapeHtml(item.ipa || "")}</div>
     <button class="btn ghost small" id="q-speak" style="margin-top:12px;width:auto;padding:10px 16px">
-      <svg class="icon" style="width:18px;height:18px"><use href="#i-volume"/></svg> 聽發音
-    </button>`;
+      <svg class="icon" style="width:18px;height:18px"><use href="#i-volume"/></svg> 聽發音提示
+    </button>
+    <div class="q-prompt" style="margin-top:10px">點一下字母，排出正確順序</div>`;
   $("#q-speak").addEventListener("click", () => speak(item.en));
 
   const slots = letters.map((_, i) => `<div class="slot" data-i="${i}"></div>`).join("");
   const blocks = pool.map((b) => `<button class="block" data-id="${b.id}" data-l="${b.l}">${b.l}</button>`).join("");
   $("#q-answer-area").innerHTML = `
     <div class="answer-slots" id="slots">${slots}</div>
-    <div class="q-prompt" style="margin-top:16px">點字母，排出正確順序</div>
     <div class="blocks" id="blocks">${blocks}</div>
-    <div class="row" style="margin-top:14px;justify-content:center">
+    <div class="row" style="margin-top:14px;justify-content:center;flex-wrap:wrap">
       <button class="btn small ghost" id="spell-back" style="width:auto">退格</button>
+      <button class="btn small ghost" id="spell-reset" style="width:auto">重置</button>
       <button class="btn small" id="spell-check" style="width:auto">確認拼字</button>
     </div>`;
 
@@ -363,12 +371,18 @@ function renderSpell(item) {
       paint();
     });
   });
-  $("#spell-back").addEventListener("click", () => {
+  function releaseLast() {
     const last = chosen.pop();
     if (last) {
       const el = $(`#blocks .block[data-id="${last.id}"]`);
       if (el) el.classList.remove("used");
     }
+    paint();
+  }
+  $("#spell-back").addEventListener("click", releaseLast);
+  $("#spell-reset").addEventListener("click", () => {
+    chosen.length = 0;
+    $$("#blocks .block").forEach((b) => b.classList.remove("used"));
     paint();
   });
   $("#spell-check").addEventListener("click", () => {
