@@ -1,4 +1,4 @@
-import { DECKS, DECK_MAP, allWords, wordKey } from "./data.js";
+import { DECKS, DECK_MAP, GROUPS, allWords, wordKey } from "./data.js";
 import * as store from "./store.js";
 
 /* ================= 小工具 ================= */
@@ -197,9 +197,13 @@ function renderHome() {
     })
     .join("");
 
-  // 學習路線
-  const sel = p.selectedDeck || DECKS[0].id;
-  $("#deck-list").innerHTML = DECKS.map((d) => {
+  // 學習路線（按 group 分類）
+  let sel = p.selectedDeck || DECKS[0].id;
+  if (!DECK_MAP[sel]) {
+    sel = DECKS[0].id;
+    store.setProfileField(p, "selectedDeck", sel);
+  }
+  const deckCard = (d) => {
     const due = store.dueCount(p, d.id);
     const nw = store.newCount(p, d.id);
     const total = d.words.length;
@@ -214,7 +218,15 @@ function renderHome() {
       </div>
       <svg class="icon go"><use href="#i-chev"/></svg>
     </div>`;
-  }).join("");
+  };
+  let deckHtml = "";
+  for (const g of GROUPS) {
+    const decks = DECKS.filter((d) => d.group === g);
+    if (!decks.length) continue;
+    deckHtml += `<div class="deck-group">${escapeHtml(g)}</div>`;
+    deckHtml += decks.map(deckCard).join("");
+  }
+  $("#deck-list").innerHTML = deckHtml;
   $$("#deck-list .deck").forEach((el) => {
     el.addEventListener("click", () => {
       if (p.selectedDeck === el.dataset.id) {

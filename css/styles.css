@@ -153,6 +153,12 @@ body {
 .day.done .sun { opacity: 1; }
 
 /* ---------- 學習路線 ---------- */
+.deck-group {
+  font-size: 13px; font-weight: 800; color: var(--muted);
+  letter-spacing: 0.02em; margin: 16px 4px 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.deck-group::before { content: ""; width: 6px; height: 14px; border-radius: 3px; background: #ddd3c0; }
 .deck {
   display: flex; align-items: center; gap: 14px;
   background: var(--surface); border: 1px solid var(--line);

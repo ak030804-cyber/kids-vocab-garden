@@ -1,10 +1,19 @@
-// 單字庫 — 學習路線 (decks)
+// 單字庫 — 學習路線 (decks)，按 group 分類
 // 每個 word: { en: 英文, zh: 中文, pic: 插圖(emoji), ipa: 音標 }
 
+export const GROUPS = [
+  "B5 課本 · 單元",
+  "B5 課本 · 主題",
+  "Phonics 字母",
+  "生活字庫"
+];
+
 export const DECKS = [
+  /* ===== B5 課本 · 單元 ===== */
   {
     id: "school-b5",
-    name: "B5 默書清單",
+    group: "B5 課本 · 單元",
+    name: "默書清單",
     desc: "Spelling Check List · Unit 1–5",
     color: "#3f8f7a",
     words: [
@@ -30,61 +39,10 @@ export const DECKS = [
       { en: "knife", zh: "刀", pic: "🔪", ipa: "/naɪf/" }
     ]
   },
-
-  /* ---------- Phonics 字母 ---------- */
-  {
-    id: "phonics-d",
-    name: "Phonics · 字母 D",
-    desc: "D d — doctor / duck / doll / door",
-    color: "#5b7fc7",
-    words: [
-      { en: "doctor", zh: "醫生", pic: "🧑‍⚕️", ipa: "/ˈdɑːk.tɚ/" },
-      { en: "duck", zh: "鴨", pic: "🦆", ipa: "/dʌk/" },
-      { en: "doll", zh: "公仔", pic: "🪆", ipa: "/dɑːl/" },
-      { en: "door", zh: "門", pic: "🚪", ipa: "/dɔːr/" }
-    ]
-  },
-  {
-    id: "phonics-j",
-    name: "Phonics · 字母 J",
-    desc: "J j — jellyfish / jacket / joker / jelly",
-    color: "#5b7fc7",
-    words: [
-      { en: "jellyfish", zh: "水母", pic: "🪼", ipa: "/ˈdʒel.i.fɪʃ/" },
-      { en: "jacket", zh: "外套", pic: "🧥", ipa: "/ˈdʒæk.ɪt/" },
-      { en: "joker", zh: "小丑", pic: "🃏", ipa: "/ˈdʒoʊ.kɚ/" },
-      { en: "jelly", zh: "啫喱", pic: "🍮", ipa: "/ˈdʒel.i/" }
-    ]
-  },
-  {
-    id: "phonics-z",
-    name: "Phonics · 字母 Z",
-    desc: "Z z — zero / zip / zigzag / zebra",
-    color: "#5b7fc7",
-    words: [
-      { en: "zero", zh: "零", pic: "0️⃣", ipa: "/ˈzɪr.oʊ/" },
-      { en: "zip", zh: "拉鏈", pic: "🤐", ipa: "/zɪp/" },
-      { en: "zigzag", zh: "之字形", pic: "〰️", ipa: "/ˈzɪɡ.zæɡ/" },
-      { en: "zebra", zh: "斑馬", pic: "🦓", ipa: "/ˈziː.brə/" }
-    ]
-  },
-  {
-    id: "phonics-l",
-    name: "Phonics · 字母 L",
-    desc: "L l — lemon / leaf / lamp / lip",
-    color: "#5b7fc7",
-    words: [
-      { en: "lemon", zh: "檸檬", pic: "🍋", ipa: "/ˈlem.ən/" },
-      { en: "leaf", zh: "葉", pic: "🍃", ipa: "/liːf/" },
-      { en: "lamp", zh: "燈", pic: "💡", ipa: "/læmp/" },
-      { en: "lip", zh: "嘴唇", pic: "👄", ipa: "/lɪp/" }
-    ]
-  },
-
-  /* ---------- B5 單元 ---------- */
   {
     id: "b5-u1",
-    name: "B5 Unit 1 · 文具",
+    group: "B5 課本 · 單元",
+    name: "Unit 1 · 文具",
     desc: "School Stationery",
     color: "#c98a3f",
     words: [
@@ -96,7 +54,8 @@ export const DECKS = [
   },
   {
     id: "b5-u2",
-    name: "B5 Unit 2 · 天氣",
+    group: "B5 課本 · 單元",
+    name: "Unit 2 · 天氣",
     desc: "Weather",
     color: "#c98a3f",
     words: [
@@ -107,7 +66,8 @@ export const DECKS = [
   },
   {
     id: "b5-u3",
-    name: "B5 Unit 3 · 電子用品",
+    group: "B5 課本 · 單元",
+    name: "Unit 3 · 電子用品",
     desc: "Electronics",
     color: "#c98a3f",
     words: [
@@ -118,7 +78,8 @@ export const DECKS = [
   },
   {
     id: "b5-u4",
-    name: "B5 Unit 4 · 天氣",
+    group: "B5 課本 · 單元",
+    name: "Unit 4 · 天氣",
     desc: "Weather",
     color: "#c98a3f",
     words: [
@@ -130,7 +91,8 @@ export const DECKS = [
   },
   {
     id: "b5-u5",
-    name: "B5 Unit 5 · 地方與學校",
+    group: "B5 課本 · 單元",
+    name: "Unit 5 · 地方與學校",
     desc: "Places & School",
     color: "#c98a3f",
     words: [
@@ -140,9 +102,12 @@ export const DECKS = [
       { en: "class", zh: "班房", pic: "🧑‍🎓", ipa: "/klæs/" }
     ]
   },
+
+  /* ===== B5 課本 · 主題 ===== */
   {
     id: "b5-animals",
-    name: "B5 · 動物 Amazing Animals",
+    group: "B5 課本 · 主題",
+    name: "動物 Amazing Animals",
     desc: "Unit 4 Amazing Animals",
     color: "#3f8f7a",
     words: [
@@ -156,7 +121,8 @@ export const DECKS = [
   },
   {
     id: "b5-town",
-    name: "B5 · 城鎮 Going into Town",
+    group: "B5 課本 · 主題",
+    name: "城鎮 Going into Town",
     desc: "Unit 5 Going into Town",
     color: "#6a9bcc",
     words: [
@@ -170,7 +136,8 @@ export const DECKS = [
   },
   {
     id: "b5-food",
-    name: "B5 · 世界美食 Food around the World",
+    group: "B5 課本 · 主題",
+    name: "美食 Food around the World",
     desc: "It's a Fun World",
     color: "#d9663f",
     words: [
@@ -188,7 +155,8 @@ export const DECKS = [
   },
   {
     id: "b5-places",
-    name: "B5 · 地方 Macao & China",
+    group: "B5 課本 · 主題",
+    name: "地方 Macao & China",
     desc: "It's a Fun World",
     color: "#6a9bcc",
     words: [
@@ -199,9 +167,37 @@ export const DECKS = [
     ]
   },
 
-  /* ---------- 通用 ---------- */
+  /* ===== Phonics 字母 ===== */
+  {
+    id: "phonics",
+    group: "Phonics 字母",
+    name: "字母 D / J / Z / L",
+    desc: "Phonics — D d · J j · Z z · L l",
+    color: "#5b7fc7",
+    words: [
+      { en: "doctor", zh: "醫生", pic: "🧑‍⚕️", ipa: "/ˈdɑːk.tɚ/" },
+      { en: "duck", zh: "鴨", pic: "🦆", ipa: "/dʌk/" },
+      { en: "doll", zh: "公仔", pic: "🪆", ipa: "/dɑːl/" },
+      { en: "door", zh: "門", pic: "🚪", ipa: "/dɔːr/" },
+      { en: "jellyfish", zh: "水母", pic: "🪼", ipa: "/ˈdʒel.i.fɪʃ/" },
+      { en: "jacket", zh: "外套", pic: "🧥", ipa: "/ˈdʒæk.ɪt/" },
+      { en: "joker", zh: "小丑", pic: "🃏", ipa: "/ˈdʒoʊ.kɚ/" },
+      { en: "jelly", zh: "啫喱", pic: "🍮", ipa: "/ˈdʒel.i/" },
+      { en: "zero", zh: "零", pic: "0️⃣", ipa: "/ˈzɪr.oʊ/" },
+      { en: "zip", zh: "拉鏈", pic: "🤐", ipa: "/zɪp/" },
+      { en: "zigzag", zh: "之字形", pic: "〰️", ipa: "/ˈzɪɡ.zæɡ/" },
+      { en: "zebra", zh: "斑馬", pic: "🦓", ipa: "/ˈziː.brə/" },
+      { en: "lemon", zh: "檸檬", pic: "🍋", ipa: "/ˈlem.ən/" },
+      { en: "leaf", zh: "葉", pic: "🍃", ipa: "/liːf/" },
+      { en: "lamp", zh: "燈", pic: "💡", ipa: "/læmp/" },
+      { en: "lip", zh: "嘴唇", pic: "👄", ipa: "/lɪp/" }
+    ]
+  },
+
+  /* ===== 生活字庫 ===== */
   {
     id: "starter",
+    group: "生活字庫",
     name: "基礎入門",
     desc: "最常用的第一批單字",
     color: "#5f9e63",
@@ -229,13 +225,13 @@ export const DECKS = [
   },
   {
     id: "animals",
+    group: "生活字庫",
     name: "動物樂園",
     desc: "天上飛、水裡游、地上走",
     color: "#e08a4e",
     words: [
       { en: "bear", zh: "熊", pic: "🐻", ipa: "/ber/" },
       { en: "bird", zh: "鳥", pic: "🐦", ipa: "/bɝːd/" },
-      { en: "duck", zh: "鴨", pic: "🦆", ipa: "/dʌk/" },
       { en: "frog", zh: "青蛙", pic: "🐸", ipa: "/frɔːɡ/" },
       { en: "horse", zh: "馬", pic: "🐴", ipa: "/hɔːrs/" },
       { en: "panda", zh: "熊貓", pic: "🐼", ipa: "/ˈpæn.də/" },
@@ -251,6 +247,7 @@ export const DECKS = [
   },
   {
     id: "colors",
+    group: "生活字庫",
     name: "顏色與形狀",
     desc: "繽紛嘅世界",
     color: "#6a9bcc",
@@ -271,6 +268,7 @@ export const DECKS = [
   },
   {
     id: "food",
+    group: "生活字庫",
     name: "食物王國",
     desc: "好味嘅嘢食",
     color: "#d9663f",
@@ -286,13 +284,13 @@ export const DECKS = [
       { en: "rice", zh: "飯", pic: "🍚", ipa: "/raɪs/" },
       { en: "soup", zh: "湯", pic: "🍲", ipa: "/suːp/" },
       { en: "strawberry", zh: "士多啤梨", pic: "🍓", ipa: "/ˈstrɔː.ber.i/" },
-      { en: "sugar", zh: "糖", pic: "🍬", ipa: "/ˈʃʊɡ.ɚ/" },
       { en: "tomato", zh: "番茄", pic: "🍅", ipa: "/təˈmeɪ.toʊ/" },
       { en: "watermelon", zh: "西瓜", pic: "🍉", ipa: "/ˈwɔː.tɚ.mel.ən/" }
     ]
   },
   {
     id: "school",
+    group: "生活字庫",
     name: "校園日常",
     desc: "返學用到嘅字",
     color: "#8a76c4",
