@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#fbf7ef" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="字樹花園" />
+<title>字樹花園 · 每日單字</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="assets/icon-192.png" />
+<link rel="icon" href="assets/icon-192.png" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ===== 圖示 sprites ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 10.5 12 3l9 7.5M5.5 9.5V20h13V9.5"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 19c0-8 5-13 14-14 1 9-4 14-11 14M5 19c1-4 3.5-6.5 7-8"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 9v6h4l5 4V5L8 9H4zM16.5 8.5a5 5 0 0 1 0 7M19 6a8 8 0 0 1 0 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4.5 4.5L19 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5 5l1.8 1.8M17.2 17.2 19 19M19 5l-1.8 1.8M6.8 17.2 5 19"/></g></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3s6 6.5 6 10.5A6 6 0 0 1 6 13.5C6 9.5 12 3 12 3z"/></symbol>
+</svg>
+
+<div class="app">
+
+  <!-- ============ 迎賓 / Profile ============ -->
+  <section id="screen-welcome" class="hidden">
+    <div class="hero-app">
+      <svg class="logo" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="56" fill="#eef7ee"/>
+        <g class="tree-sway">
+          <path d="M60 104V70" stroke="#7a5a36" stroke-width="6" stroke-linecap="round"/>
+          <path d="M60 78c-13 0-22-8-24-19 12-3 22 3 24 12" fill="#5f9e63"/>
+          <path d="M60 76c13 0 22-8 24-19-12-3-22 3-24 12" fill="#74b578"/>
+          <circle cx="60" cy="46" r="20" fill="#5f9e63"/>
+          <circle cx="47" cy="52" r="13" fill="#74b578"/>
+          <circle cx="73" cy="52" r="13" fill="#4c8a52"/>
+        </g>
+        <circle cx="92" cy="30" r="9" fill="#f2c14e"/>
+      </svg>
+      <h1>字樹花園</h1>
+      <p>每日學一點點・幫自己嘅花園澆水</p>
+    </div>
+
+    <div id="profile-list" class="profile-pick"></div>
+
+    <div id="new-profile-form" class="card hidden" style="margin-top:14px">
+      <div class="field" style="margin-top:0">
+        <label for="new-profile-name">小朋友嘅名</label>
+        <input id="new-profile-name" class="input" maxlength="12" placeholder="例如：細佬" autocomplete="off" />
+      </div>
+      <div class="row" style="margin-top:14px">
+        <button class="btn small ghost" id="cancel-profile">取消</button>
+        <button class="btn small" id="confirm-profile">開始</button>
+      </div>
+    </div>
+
+    <button class="btn ghost" id="show-new-profile" style="margin-top:16px">
+      <svg class="icon"><use href="#i-plus"/></svg> 新增小朋友
+    </button>
+  </section>
+
+  <!-- ============ 主頁 ============ -->
+  <section id="screen-home" class="hidden">
+    <div class="topbar">
+      <div class="who">
+        <div class="avatar" id="home-avatar">小</div>
+        <div>
+          <div class="greet" id="home-greet">你好</div>
+          <div class="name" id="home-name">小朋友</div>
+        </div>
+      </div>
+      <button class="iconbtn" id="btn-switch" title="切換小朋友">
+        <svg class="icon"><use href="#i-user"/></svg>
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="plan">
+        <div class="ring">
+          <svg width="96" height="96" viewBox="0 0 96 96">
+            <circle cx="48" cy="48" r="42" fill="none" stroke="#efe9db" stroke-width="10"/>
+            <circle id="ring-arc" cx="48" cy="48" r="42" fill="none" stroke="#5f9e63" stroke-width="10"
+                    stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+          </svg>
+          <div class="pct" id="ring-pct">0%</div>
+        </div>
+        <div class="plan-info">
+          <div class="plan-title">今日計畫</div>
+          <div class="plan-sub" id="plan-sub">完成今天的練習，幫花園澆水</div>
+          <div class="pill"><span class="dot"></span><span id="plan-count">0 / 10 個任務</span></div>
+        </div>
+      </div>
+      <button class="btn" id="btn-start" style="margin-top:18px">
+        <svg class="icon"><use href="#i-leaf"/></svg> 開始今天的學習
+      </button>
+    </div>
+
+    <div class="section-label">本週陽光足跡</div>
+    <div class="week" id="week-row"></div>
+
+    <div class="section-label">選擇學習路線</div>
+    <div id="deck-list"></div>
+
+    <div class="section-label">字樹花園</div>
+    <div class="garden-wrap" id="home-garden"></div>
+  </section>
+
+  <!-- ============ 學習 ============ -->
+  <section id="screen-learn" class="hidden">
+    <div class="learn-top">
+      <button class="iconbtn" id="btn-leave-learn" title="離開">
+        <svg class="icon"><use href="#i-back"/></svg>
+      </button>
+      <div class="progress-lane"><i id="learn-bar"></i></div>
+      <div class="count" id="learn-count">0/0</div>
+    </div>
+
+    <div class="q-body">
+      <div class="qtype-tag" id="qtype-tag">
+        <svg class="icon" style="width:16px;height:16px"><use href="#i-volume"/></svg>
+        <span id="qtype-text">聽聲音，選出單字</span>
+      </div>
+      <div id="q-stage" style="margin-top:16px"></div>
+    </div>
+
+    <div id="q-answer-area"></div>
+    <div id="q-feedback"></div>
+
+    <button class="btn" id="btn-next" style="margin-top:18px;visibility:hidden">繼續</button>
+  </section>
+
+  <!-- ============ 花園 ============ -->
+  <section id="screen-garden" class="hidden">
+    <div class="topbar">
+      <div class="who">
+        <div class="avatar" id="garden-avatar">小</div>
+        <div>
+          <div class="greet">字樹花園</div>
+          <div class="name" id="garden-name">小朋友</div>
+        </div>
+      </div>
+    </div>
+    <div class="garden-wrap" id="garden-big"></div>
+    <div class="section-label">成長紀錄</div>
+    <div class="card" id="garden-milestones"></div>
+  </section>
+
+  <!-- ============ 報告 ============ -->
+  <section id="screen-report" class="hidden">
+    <div class="topbar">
+      <div class="who">
+        <div class="avatar" id="report-avatar">小</div>
+        <div>
+          <div class="greet">家長報告</div>
+          <div class="name" id="report-name">小朋友</div>
+        </div>
+      </div>
+      <div class="row" style="gap:6px">
+        <button class="btn small ghost" data-days="7">7天</button>
+        <button class="btn small ghost" data-days="30">30天</button>
+      </div>
+    </div>
+
+    <div class="stats" id="report-stats"></div>
+
+    <div class="section-label">近 7 天學習足跡</div>
+    <div class="card">
+      <div class="trend" id="report-trend"></div>
+    </div>
+
+    <div class="section-label">題型分佈</div>
+    <div class="card">
+      <div class="bars" id="report-types"></div>
+    </div>
+
+    <div class="section-label">學習分佈</div>
+    <div class="card">
+      <div class="bars" id="report-mix"></div>
+    </div>
+
+    <div class="section-label">管理</div>
+    <div class="card">
+      <button class="btn ghost small" id="btn-switch-2">切換小朋友</button>
+      <button class="btn ghost small" id="btn-reset" style="margin-top:10px;color:var(--red)">
+        <svg class="icon" style="width:18px;height:18px"><use href="#i-trash"/></svg> 重設此小朋友進度
+      </button>
+    </div>
+  </section>
+
+  <nav class="tabbar hidden" id="tabbar">
+    <button class="tab" data-tab="home"><svg class="icon"><use href="#i-home"/></svg>首頁</button>
+    <button class="tab" data-tab="garden"><svg class="icon"><use href="#i-leaf"/></svg>花園</button>
+    <button class="tab" data-tab="report"><svg class="icon"><use href="#i-chart"/></svg>報告</button>
+  </nav>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
