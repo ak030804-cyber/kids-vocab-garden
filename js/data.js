@@ -31,6 +31,18 @@ export const DECKS = [
     ]
   },
   {
+    id: "phonics-d",
+    name: "Phonics · 字母 D",
+    desc: "Phonics worksheet · D d",
+    color: "#5b7fc7",
+    words: [
+      { en: "doctor", zh: "醫生", pic: "🧑‍⚕️", ipa: "/ˈdɑːk.tɚ/" },
+      { en: "duck", zh: "鴨", pic: "🦆", ipa: "/dʌk/" },
+      { en: "doll", zh: "公仔", pic: "🪆", ipa: "/dɑːl/" },
+      { en: "door", zh: "門", pic: "🚪", ipa: "/dɔːr/" }
+    ]
+  },
+  {
     id: "starter",
     name: "基礎入門",
     desc: "最常用的第一批單字",
