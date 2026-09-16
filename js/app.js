@@ -291,6 +291,7 @@ function renderQuestion() {
   $("#learn-bar").style.width = `${(session.idx / session.items.length) * 100}%`;
   $("#q-feedback").innerHTML = "";
   $("#btn-next").style.visibility = "hidden";
+  $("#btn-skip").style.visibility = "visible";
 
   const tag = { listen: "聽聲音，選出單字", recognize: "認字，選出正確意思", spell: "用字母積木拼出單字" }[qType];
   const tagIcon = qType === "spell" ? "#i-leaf" : qType === "recognize" ? "#i-chart" : "#i-volume";
@@ -477,6 +478,13 @@ function answerChoice(btn, correct, item, explain, typed) {
   };
 }
 
+function skipQuestion() {
+  if (!session) return;
+  session.idx += 1;
+  if (session.idx >= session.items.length) finishSession();
+  else renderQuestion();
+}
+
 function finishSession() {
   const p = store.activeProfile();
   const today = store.ensureDay(p, store.dateKey());
@@ -485,6 +493,7 @@ function finishSession() {
 
   $("#learn-bar").style.width = "100%";
   $("#learn-count").textContent = "完成";
+  $("#btn-skip").style.visibility = "hidden";
   $("#q-stage").innerHTML = `
     <div class="garden-stage" style="padding-top:6px">${gardenSVG(g.stage)}</div>
     <div class="title-lg" style="text-align:center">今日任務完成！</div>
@@ -611,6 +620,7 @@ function bind() {
   });
 
   $("#btn-start").addEventListener("click", startSession);
+  $("#btn-skip").addEventListener("click", skipQuestion);
   $("#btn-switch").addEventListener("click", renderWelcome);
   $("#btn-switch-2").addEventListener("click", renderWelcome);
   $("#btn-leave-learn").addEventListener("click", () => {

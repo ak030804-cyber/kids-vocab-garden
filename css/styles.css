@@ -206,6 +206,12 @@ body {
 .progress-lane { flex: 1; height: 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
 .progress-lane > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--green), #7cc07f); transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
 .count { font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+.skipbtn {
+  border: none; background: transparent; color: var(--muted);
+  font-family: inherit; font-weight: 700; font-size: 14px;
+  cursor: pointer; padding: 8px 2px; white-space: nowrap;
+}
+.skipbtn:active { transform: scale(0.95); }
 
 .qtype-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 700; color: var(--muted); }
 
