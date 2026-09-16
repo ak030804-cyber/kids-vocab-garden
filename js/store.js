@@ -118,10 +118,11 @@ export function deckWords(deckId) {
 }
 
 // 今日要學：先到期複習，再補新字
-export function buildSession(profile, deckId, limit) {
+export function buildSession(profile, deckId, limit, mode) {
   const words = deckWords(deckId);
   const now = Date.now();
   const goal = limit || profile.targetDaily || 10;
+  const m = mode || profile.mode || "mix";
 
   const seen = [];
   const fresh = [];
@@ -135,15 +136,22 @@ export function buildSession(profile, deckId, limit) {
     }
   }
   // 到期複習優先，再補新字
-  const picked = [...seen, ...fresh].slice(0, goal);
+  let picked = [...seen, ...fresh];
+  // 拼字模式唔可以有空格詞
+  if (m === "spell") {
+    const noSpace = picked.filter((it) => !/\s/.test(it.w.en));
+    if (noSpace.length) picked = noSpace;
+  }
+  picked = picked.slice(0, goal);
 
   return picked.map((item, i) => {
     // 題型輪換：新字用「聽音」，複習用「拼字」，間中「認字」
     let qType;
-    if (!item.isReview) qType = i % 3 === 0 ? "recognize" : "listen";
+    if (m !== "mix") qType = m;
+    else if (!item.isReview) qType = i % 3 === 0 ? "recognize" : "listen";
     else qType = i % 2 === 0 ? "spell" : "listen";
     // 多字詞（例如 fish and chips）唔可以拼字題
-    if (/\s/.test(item.w.en)) qType = "listen";
+    if (qType === "spell" && /\s/.test(item.w.en)) qType = "listen";
     return { ...item, qType };
   });
 }

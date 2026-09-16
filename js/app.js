@@ -29,6 +29,13 @@ function distractorPool(deckId, key, exclude) {
 }
 
 let toastTimer = null;
+
+const MODES = [
+  { id: "mix", label: "綜合" },
+  { id: "spell", label: "拼字" },
+  { id: "listen", label: "聽音" },
+  { id: "recognize", label: "認字" }
+];
 function toast(msg) {
   const el = $("#toast");
   el.textContent = msg;
@@ -239,6 +246,20 @@ function renderHome() {
     });
   });
 
+  // 練習模式
+  const mode = p.mode || "mix";
+  $("#mode-row").innerHTML = MODES.map(
+    (m) => `<button class="mode ${m.id === mode ? "active" : ""}" data-mode="${m.id}">${m.label}</button>`
+  ).join("");
+  $$("#mode-row .mode").forEach((b) => {
+    b.addEventListener("click", () => {
+      store.setProfileField(p, "mode", b.dataset.mode);
+      renderHome();
+      const lbl = (MODES.find((m) => m.id === b.dataset.mode) || {}).label;
+      toast("練習模式：" + lbl);
+    });
+  });
+
   // 花園預覽
   renderGardenCard($("#home-garden"), p);
   show("home");
@@ -266,7 +287,7 @@ let session = null;
 function startSession() {
   const p = store.activeProfile();
   const deckId = p.selectedDeck || DECKS[0].id;
-  const items = store.buildSession(p, deckId, p.targetDaily || 10);
+  const items = store.buildSession(p, deckId, p.targetDaily || 10, p.mode);
   if (!items.length) {
     toast("此路線暫時冇嘢學，試下其他路線");
     return;

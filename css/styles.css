@@ -138,6 +138,17 @@ body {
 }
 .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
 
+.modes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.mode {
+  border: 1px solid var(--line); background: var(--surface);
+  border-radius: 14px; padding: 12px 4px;
+  font-family: inherit; font-weight: 700; font-size: 14px; color: var(--muted);
+  cursor: pointer; box-shadow: var(--shadow-sm);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+}
+.mode:active { transform: scale(0.95); }
+.mode.active { color: #fff; background: var(--green); border-color: var(--green); }
+
 /* ---------- 本週陽光足跡 ---------- */
 .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
 .day {
