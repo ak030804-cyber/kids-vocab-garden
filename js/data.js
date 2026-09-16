@@ -3,6 +3,34 @@
 
 export const DECKS = [
   {
+    id: "school-b5",
+    name: "學校默書 (B5)",
+    desc: "Spelling Check List · Unit 1–5",
+    color: "#3f8f7a",
+    words: [
+      { en: "fireman", zh: "消防員" },
+      { en: "doctor", zh: "醫生" },
+      { en: "nurse", zh: "護士" },
+      { en: "bowl", zh: "碗" },
+      { en: "spoon", zh: "匙羹" },
+      { en: "noodles", zh: "麵條" },
+      { en: "dance", zh: "跳舞" },
+      { en: "jump", zh: "跳" },
+      { en: "run", zh: "跑" },
+      { en: "swim", zh: "游泳" },
+      { en: "monkey", zh: "猴子" },
+      { en: "zebra", zh: "斑馬" },
+      { en: "lion", zh: "獅子" },
+      { en: "library", zh: "圖書館" },
+      { en: "park", zh: "公園" },
+      { en: "school", zh: "學校" },
+      { en: "sushi", zh: "壽司" },
+      { en: "pizza", zh: "薄餅" },
+      { en: "fork", zh: "叉" },
+      { en: "knife", zh: "刀" }
+    ]
+  },
+  {
     id: "starter",
     name: "基礎入門",
     desc: "最常用的第一批單字",
